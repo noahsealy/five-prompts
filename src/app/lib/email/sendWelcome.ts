@@ -10,9 +10,6 @@ export async function sendWelcome(email: string) {
     react: EmailTemplate(),
   });
 
-
-  console.log('Welcome email sent', data);
-  console.log('Welcome email error', error);
   if (error) {
     throw new Error(error.message);
   }
