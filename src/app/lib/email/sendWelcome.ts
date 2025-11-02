@@ -2,12 +2,12 @@ import { EmailTemplate } from './templates/welcome';
 import { resend } from '@/app/lib/resend';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-export async function sendWelcome() {
+export async function sendWelcome(email: string) {
   const { data, error } = await resend.emails.send({
     from: 'Acme <onboarding@resend.dev>',
-    to: ['delivered@resend.dev'],
-    subject: 'Hello world',
-    react: EmailTemplate({ firstName: 'John' }),
+    to: [email],
+    subject: 'Welcome to Five Prompts',
+    react: EmailTemplate(),
   });
 
 
